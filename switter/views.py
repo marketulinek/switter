@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from .models import Profile
+from .models import Profile, Sweet
 
 
 def dashboard(request):
-    return render(request, 'base.html')
+    # sweets = Sweet.objects.get(user=request.user.profile.follows.user.sweet)
+    return render(request, 'switter/dashboard.html')
 
 def profile_list(request):
     profiles = Profile.objects.exclude(user=request.user)
