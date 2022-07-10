@@ -1,10 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import SweetForm
 from .models import Profile, Sweet
 
 
 def dashboard(request):
     # sweets = Sweet.objects.get(user=request.user.profile.follows.user.sweet)
-    return render(request, 'switter/dashboard.html')
+    form = SweetForm(request.POST or None)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            sweet = form.save(commit=False)
+            sweet.user = request.user
+            sweet.save()
+            return redirect('switter:dashboard')
+
+    return render(request, 'switter/dashboard.html', {'form': form})
 
 def profile_list(request):
     profiles = Profile.objects.exclude(user=request.user)
