@@ -4,7 +4,7 @@ from .models import Profile, Sweet
 
 
 def dashboard(request):
-    # sweets = Sweet.objects.get(user=request.user.profile.follows.user.sweet)
+    followed_sweets = Sweet.objects.filter(user__profile__in=request.user.profile.follows.all()).order_by('-created_at')
     form = SweetForm(request.POST or None)
 
     if request.method == 'POST':
@@ -14,7 +14,7 @@ def dashboard(request):
             sweet.save()
             return redirect('switter:dashboard')
 
-    return render(request, 'switter/dashboard.html', {'form': form})
+    return render(request, 'switter/dashboard.html', {'form': form, 'sweets': followed_sweets})
 
 def profile_list(request):
     profiles = Profile.objects.exclude(user=request.user)

@@ -8,12 +8,14 @@
     <title>Switter</title>
 </head>
 <body>
-    <section class="hero is-small is-success mb-4">
-        <div class="hero-body">
-            <h1 class="title is-1">Switter</h1>
-            <p class="subtitle is-4">Tiny social network for snakes</p>
-        </div>
-    </section>
+    <a href="{% url 'switter:dashboard' %}">
+        <section class="hero is-small is-success mb-4">
+            <div class="hero-body">
+                <h1 class="title is-1">Switter</h1>
+                <p class="subtitle is-4">Tiny social network for snakes</p>
+            </div>
+        </section>
+    </a>
     <div class="container">
         <div class="columns">
             {% block content %}
