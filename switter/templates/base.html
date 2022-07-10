@@ -6,10 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <title>Switter</title>
+    <style>
+        .snake-background {
+            background-image: linear-gradient(to bottom right, #194A40, #4D7850, #9CCA91)
+        }
+        .button.is-snake {
+            background-color: rgba(156, 202, 145, 0.2);
+            color: #4D7850;
+            border-color: #4D7850;
+        }
+        textarea.is-snake {
+            border-color: #4D7850;
+        }
+        /* not used */
+        .snake-background2 {
+            background-image: linear-gradient(to bottom right, #136544, #085C5D, #07616C, #125791);
+        }
+    </style>
 </head>
 <body>
     <a href="{% url 'switter:dashboard' %}">
-        <section class="hero is-small is-success mb-4">
+        <section class="hero is-small is-success mb-4 snake-background">
             <div class="hero-body">
                 <h1 class="title is-1">Switter</h1>
                 <p class="subtitle is-4">Tiny social network for snakes</p>

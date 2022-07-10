@@ -8,7 +8,8 @@ class SweetForm(forms.ModelForm):
         widget=forms.widgets.Textarea(
             attrs={
                 'placeholder': 'Ssss something...',
-                'class': 'textarea is-success is-medium'
+                'class': 'textarea is-medium is-snake',
+                'rows': 5
             }
         ),
         label = ''
