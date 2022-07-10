@@ -21,25 +21,29 @@
             </a>
         </div>
 
-        <div class="block">
-            <a href="{% url 'switter:profile' request.user.profile.id %} ">
-                <button class="button is-success is-snake is-light is-fullwidth">
-                    My Profile
-                </button>
-            </a>
-        </div>
+        {% if user.is_authenticated %}
+            <div class="block">
+                <a href="{% url 'switter:profile' request.user.profile.id %} ">
+                    <button class="button is-success is-snake is-light is-fullwidth">
+                        My Profile
+                    </button>
+                </a>
+            </div>
 
-        <div class="block">
             <div class="block">
-                <h3 class="title is-3">Add a Sweet</h3>
+                <div class="block">
+                    <h3 class="title is-3">Add a Sweet</h3>
+                </div>
+                <div class="block">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="button is-success is-fullwidth is-medium mt-5 snake-background" type="submit">Sweet</button>
+                    </form>
+                </div>
             </div>
-            <div class="block">
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button class="button is-success is-fullwidth is-medium mt-5 snake-background" type="submit">Sweet</button>
-                </form>
-            </div>
-        </div>
+        {% endif %}
+
+
     </div>
 {% endblock %}

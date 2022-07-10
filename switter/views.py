@@ -4,20 +4,31 @@ from .models import Profile, Sweet
 
 
 def dashboard(request):
-    followed_sweets = Sweet.objects.filter(user__profile__in=request.user.profile.follows.all()).order_by('-created_at')
-    form = SweetForm(request.POST or None)
 
-    if request.method == 'POST':
-        if form.is_valid():
-            sweet = form.save(commit=False)
-            sweet.user = request.user
-            sweet.save()
-            return redirect('switter:dashboard')
+    if request.user.is_authenticated:
+        followed_sweets = Sweet.objects.filter(user__profile__in=request.user.profile.follows.all()).order_by('-created_at')
+
+        form = SweetForm(request.POST or None)
+        if request.method == 'POST':
+            if form.is_valid():
+                sweet = form.save(commit=False)
+                sweet.user = request.user
+                sweet.save()
+                return redirect('switter:dashboard')
+
+    else:
+        followed_sweets = Sweet.objects.all().order_by('-created_at')
+        form = None
 
     return render(request, 'switter/dashboard.html', {'form': form, 'sweets': followed_sweets})
 
 def profile_list(request):
-    profiles = Profile.objects.exclude(user=request.user)
+
+    if request.user.is_authenticated:
+        profiles = Profile.objects.exclude(user=request.user)
+    else:
+        profiles = Profile.objects.all()
+
     return render(request, 'switter/profile_list.html', {'profiles': profiles})
 
 def profile(request, pk):
