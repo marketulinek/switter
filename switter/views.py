@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from .forms import SweetForm
 from .models import Profile, Sweet
+from .utils import *
 from decouple import config
 
 
@@ -16,9 +17,9 @@ def dashboard(request):
             if form.is_valid():
                 sweet = form.save(commit=False)
                 sweet.user = request.user
+                sweet.content = translate_into_snake_hiss(request.POST.get('content'))
                 sweet.save()
                 return redirect('switter:dashboard')
-
     else:
         followed_sweets = Sweet.objects.all().order_by('-created_at')
         form = None
