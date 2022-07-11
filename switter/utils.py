@@ -1,10 +1,9 @@
 def translate_into_snake_hiss(text):
     """Translate human text into snake hiss.
     
-    All vowels change to capital letter S.
-    All consonants change to lower letter s.
     Specified characters without change.
-    Ignore other characters.
+    All vowels change to capital letter S.
+    Rest of characters change to lower letter s.
     """
 
     hiss = ''
