@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <title>Switter</title>
     <style>
         .snake-background { background-image: linear-gradient(to bottom right, #194A40, #4D7850, #9CCA91) }
-        button.snake-background:hover { background-image: linear-gradient(to bottom right, #11332C, #416644, #8BB381) }
+        .button.snake-background:hover { background-image: linear-gradient(to bottom right, #11332C, #416644, #8BB381) }
         .button.is-snake {
             background-color: rgba(156, 202, 145, 0.2);
             color: #4D7850;
@@ -36,7 +37,7 @@
                                     <p class="subtitle is-4">Logout</p>
                                 </a>
                             {% else %}
-                                <a href="{% url 'login' %}" class="navbar-item">
+                                <a href="{% url 'switter:login_as' %}" class="navbar-item">
                                     <p class="subtitle is-4">Login</p>
                                 </a>
                             {% endif %}

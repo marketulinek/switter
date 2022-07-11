@@ -1,6 +1,9 @@
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from .forms import SweetForm
 from .models import Profile, Sweet
+from decouple import config
 
 
 def dashboard(request):
@@ -45,3 +48,18 @@ def profile(request, pk):
         current_user_profile.save()
 
     return render(request, 'switter/profile.html', {'profile': profile})
+
+def login_as(request):
+
+    if request.user.is_authenticated:
+        return redirect('switter:dashboard')
+    
+    random_user = User.objects.order_by('?').first()
+
+    if request.method == 'POST':
+        user = authenticate(request,username=request.POST.get('username'), password=config('SSSS'))
+        if user:
+            login(request, user)
+        return redirect('switter:dashboard')
+
+    return render(request, 'registration/login_as.html', {'random_username': random_user.username})
