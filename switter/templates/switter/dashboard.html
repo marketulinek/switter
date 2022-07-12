@@ -4,6 +4,9 @@
     <div class="column">
         {% for sweet in sweets %}
             <div class="box">
+                <a href="{% url 'switter:profile' sweet.user.pk %}">
+                    <div class="avatar avatar-sm {{ sweet.user.username }}"></div>
+                </a>
                 {{ sweet.content }}
                 <span class="is-small has-text-grey-light">
                     {{ sweet.created_at }} by {{ sweet.user.username }}
