@@ -27,11 +27,8 @@ def dashboard(request):
     return render(request, 'switter/dashboard.html', {'form': form, 'sweets': followed_sweets})
 
 def profile_list(request):
-
-    if request.user.is_authenticated:
-        profiles = Profile.objects.exclude(user=request.user)
-    else:
-        profiles = Profile.objects.all()
+    
+    profiles = Profile.objects.all()
 
     return render(request, 'switter/profile_list.html', {'profiles': profiles})
 
