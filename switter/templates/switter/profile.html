@@ -5,7 +5,7 @@
     <div class="block">
         <h2 class="title is-2"><div class="avatar {{ profile.user.username }}"></div>{{profile.user.username|upper}}'s Sweets</h2>
 
-        {% if user.is_authenticated %}
+        {% if user.is_authenticated and user != profile.user %}
             <form method="post">
                 {% csrf_token %}
                 <div class="buttons has-addons">
