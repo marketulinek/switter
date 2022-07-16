@@ -133,3 +133,7 @@ LOGOUT_REDIRECT_URL = 'switter:login_as'
 
 # Heroku
 django_on_heroku.settings(locals())
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://switter-for-snakes.herokuapp.com"
+]
