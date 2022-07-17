@@ -26,11 +26,11 @@ a.navbar-item:hover { background-color: rgba(0, 0, 0, 0.2) !important; }
 /* -------------------- */
 /*  PREDEFINED AVATARS  */
 /* -------------------- */
-.avatar.sisi { background-image: linear-gradient(to bottom right, #B6402A 30%, #1E2118 55%, #EBCB61 80%); }
-.avatar.snake { background-image: linear-gradient(to bottom right, #525D6C 30%, #78713B 60%, #D3DCD8 90%); }
-.avatar.serpent { background-image: linear-gradient(to bottom right, #637A2B 30%, #AAC346 60%, #E0E788 90%); }
-.avatar.swen { background-image: linear-gradient(to bottom right, #5A7E8D 40%, #A4C5DC 60%); }
-.avatar.scarlet { background-image: linear-gradient(to bottom right, #A9090F 25%, #E4411D 60%, #F67A2C 90%); }
+.avatar.sisi, .avatar.sinaloae { background-image: linear-gradient(to bottom right, #B6402A 30%, #1E2118 55%, #EBCB61 80%); }
+.avatar.snake, .avatar.python { background-image: linear-gradient(to bottom right, #525D6C 30%, #78713B 60%, #D3DCD8 90%); }
+.avatar.serpent, .avatar.ahaetulla { background-image: linear-gradient(to bottom right, #637A2B 30%, #AAC346 60%, #E0E788 90%); }
+.avatar.swen, .avatar.foxii { background-image: linear-gradient(to bottom right, #5A7E8D 40%, #A4C5DC 60%); }
+.avatar.scarlet, .avatar.pallida { background-image: linear-gradient(to bottom right, #A9090F 25%, #E4411D 60%, #F67A2C 90%); }
 
 .avatar.hatchling  { background-image: linear-gradient(to bottom right, #955F81 25%, #887E99 60%, #6F6F38 90%); }
 .avatar.hatchling2 { background-image: linear-gradient(to bottom right, #8E673F 25%, #BE9169 60%, #E1BD8A 90%); }
