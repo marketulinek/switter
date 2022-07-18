@@ -22,8 +22,10 @@
                     <div id="navbarMenuHeroA" class="navbar-menu">
                         <div class="navbar-end">
                             {% if user.is_authenticated %}
-                                <a href="{% url 'logout' %}" class="navbar-item">
-                                    <p class="subtitle is-4">Logout</p>
+                                <a href="{% url 'logout' %}" class="navbar-item has-text-centered">
+                                    <p class="subtitle is-4"><span class="is-underlined">{{ user.username }}</span>
+                                        <br><span class="subtitle is-6">Log out</span>
+                                    </p>
                                 </a>
                             {% else %}
                                 <a href="{% url 'switter:login_as' %}" class="navbar-item">
