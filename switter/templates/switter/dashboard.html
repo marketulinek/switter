@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load humanize %}
 
 {% block content %}
     <div class="column">
@@ -9,7 +10,7 @@
                 </a>
                 {{ sweet.content }}
                 <span class="is-small has-text-grey-light">
-                    {{ sweet.created_at }} by {{ sweet.user.username }}
+                    {{ sweet.created_at|naturaltime }} by {{ sweet.user.username }}
                 </span>
             </div>
         {% endfor %}
