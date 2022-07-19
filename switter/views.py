@@ -49,15 +49,17 @@ def profile(request, pk):
 
 def login_as(request):
 
+    # In case the user is already logged in
     if request.user.is_authenticated:
         return redirect('switter:dashboard')
-    
-    random_user = User.objects.order_by('?').first()
+
+    random_user = User.objects.exclude(username='serpent').order_by('?').first()
 
     if request.method == 'POST':
         user = authenticate(request,username=request.POST.get('username'), password=config('SSSS'))
         if user:
             login(request, user)
+        # TODO: in case the password is wrong
         return redirect('switter:dashboard')
 
     return render(request, 'registration/login_as.html', {'random_username': random_user.username})
