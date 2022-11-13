@@ -2,8 +2,6 @@
 
 > Tiny social network for snakes :snake:
 
-You can visit demo on [heroku](https://switter-for-snakes.herokuapp.com/).
-
 I built this app for fun and for practising and understanding relationships between Django models.
 
 ## In this app you can
@@ -21,3 +19,8 @@ I extended it by these fetaures:
 ## Built With
 * [Django](https://www.djangoproject.com/) - Python web framework
 * [Bulma](https://bulma.io/) - Front-end framework
+
+## Screenshots
+![Screenshot of Login](screenshot_login.PNG "Login")
+![Screenshot of Profile](screenshot_profile.PNG "Profile")
+![Screenshot of Timeline](screenshot_timeline.PNG "Timeline")
